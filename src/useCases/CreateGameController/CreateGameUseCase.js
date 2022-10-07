@@ -1,17 +1,15 @@
-class CreateGameController {
+class CreateGameUseCase {
   constructor(gamesRepository) {
     this.gamesRepository = gamesRepository;
   }
 
-  handle(req, res) {
-    const { name, price, platform, description, gender, company } = req.body;
+  execute(payload) {
+    const { name, price, platform, description, gender, company } = payload;
 
     const gameExist = this.gamesRepository.findByName(name);
 
     if (gameExist) {
-      return res.status(409).json({
-        message: "Game already exist",
-      });
+      throw new Error("Game já existe");
     }
 
     const game = this.gamesRepository.create({
@@ -23,10 +21,10 @@ class CreateGameController {
       company,
     });
 
-    return res.status(201).json(game);
+    return game;
   }
 }
 
 module.exports = {
-  CreateGameController,
+  CreateGameUseCase,
 };
