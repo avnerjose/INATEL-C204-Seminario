@@ -1,22 +1,20 @@
 class DeleteGameController {
-  constructor(gamesRepository) {
-    this.gamesRepository = gamesRepository;
+  constructor(deleteGameUseCase) {
+    this.deleteGameUseCase = deleteGameUseCase;
   }
 
   handle(req, res) {
     const { id } = req.params;
 
-    const gameExist = this.gamesRepository.findByID(id);
+    try {
+      const games = this.deleteGameUseCase.execute({id});
 
-    if (!gameExist) {
-      return res.status(404).json({
-        message: "Game não existe",
+      return res.status(201).json(games);
+    } catch (e) {
+      return res.status(409).json({
+        error: e.message,
       });
     }
-
-    const games = this.gamesRepository.delete(id);
-
-    return res.json(games);
   }
 }
 
