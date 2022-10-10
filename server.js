@@ -1,12 +1,8 @@
 const express = require("express");
-const {
-  createGameController,
-} = require("./src/useCases/CreateGameController/index");
+const { createGameController } = require("./src/useCases/CreateGameController/index");
 const { deleteGameController } = require("./src/useCases/DeleteGameController");
 const { editGameController } = require("./src/useCases/EditGameController");
-const {
-  listGamesController,
-} = require("./src/useCases/ListGamesController");
+const { listGamesController } = require("./src/useCases/ListGamesController");
 
 const app = express();
 
