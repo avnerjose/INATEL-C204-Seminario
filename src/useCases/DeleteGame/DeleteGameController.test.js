@@ -3,7 +3,9 @@ const { DeleteGameUseCase } = require("./DeleteGameUseCase");
 const { DeleteGameController } = require("./DeleteGameController");
 
 jest.mock("uuid", () => {
-  return { v4: jest.fn(() => "mocked-id") };
+  return {
+    v4: jest.fn().mockReturnValue("mocked-id"),
+  };
 });
 
 describe("DeleteGameController", () => {
@@ -49,7 +51,7 @@ describe("DeleteGameController", () => {
   });
 
   it("should not be able to delete a game that doesn't exist", () => {
-    deleteGameController.handle(req, res)
+    deleteGameController.handle(req, res);
 
     expect(status).toHaveBeenCalledWith(409);
     expect(json).toHaveBeenCalledWith({

@@ -2,7 +2,7 @@ const { Game } = require("./Game");
 
 jest.mock("uuid", () => {
   return {
-    v4: jest.fn(() => "Mocked Id"),
+    v4: jest.fn().mockReturnValue("mocked-id"),
   };
 });
 
@@ -22,7 +22,7 @@ describe("Game Model", () => {
     const date = new Date();
 
     expect(game).toBeInstanceOf(Game);
-    expect(game.id).toMatch("Mocked Id");
+    expect(game.id).toMatch("mocked-id");
     expect(game.created_at).toEqual(date);
     expect(game).toEqual(expect.objectContaining(mockedGame));
   });
