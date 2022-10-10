@@ -1,10 +1,10 @@
 class ListGamesController {
-  constructor(gamesRepository) {
-    this.gamesRepository = gamesRepository;
+  constructor(listGamesUseCases) {
+    this.listGamesUseCases = listGamesUseCases;
   }
 
   handle(req, res) {
-    const games = this.gamesRepository.list();
+    const games = this.listGamesUseCases.execute();
 
     return res.json(games);
   }

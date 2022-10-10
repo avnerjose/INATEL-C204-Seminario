@@ -16,6 +16,9 @@
 * Ter instalado em sua máquina o [NodeJs](https://nodejs.org/en/)
 * Executar os seguintes comandos:
 ```
+# Clonar Repositório
+git clone https://github.com/avnerjose/INATEL-C214-Seminario.git
+
 # Instalar dependências
 $ npm install
 
@@ -23,7 +26,7 @@ $ npm install
 $ npm run dev
 
 # Executar Testes
-$ npm test
+$ npm run test
 ```
 
 <h2 align="center">Autores</h2>
