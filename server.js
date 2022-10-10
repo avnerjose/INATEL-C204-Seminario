@@ -1,12 +1,12 @@
 const express = require("express");
 const {
   createGameController,
-} = require("./src/controllers/CreateGameController/index");
-const { deleteGameController } = require("./src/controllers/DeleteGameController");
-const { editGameController } = require("./src/controllers/EditGameController");
+} = require("./src/useCases/CreateGameController/index");
+const { deleteGameController } = require("./src/useCases/DeleteGameController");
+const { editGameController } = require("./src/useCases/EditGameController");
 const {
   listGamesController,
-} = require("./src/controllers/ListGamesController");
+} = require("./src/useCases/ListGamesController");
 
 const app = express();
 
