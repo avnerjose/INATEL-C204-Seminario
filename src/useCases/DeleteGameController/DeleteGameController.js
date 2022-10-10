@@ -7,7 +7,7 @@ class DeleteGameController {
     const { id } = req.params;
 
     try {
-      const games = this.deleteGameUseCase.execute({id});
+      const games = this.deleteGameUseCase.execute(id);
 
       return res.status(201).json(games);
     } catch (e) {

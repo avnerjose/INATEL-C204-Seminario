@@ -3,9 +3,7 @@ class DeleteGameUseCase {
       this.gamesRepository = gamesRepository;
     }
   
-    execute(ID) {
-      const { id } = ID;
-  
+    execute(id) {
       const gameExist = this.gamesRepository.findByID(id);
   
       if (!gameExist) {
