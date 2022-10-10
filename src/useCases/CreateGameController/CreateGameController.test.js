@@ -25,7 +25,7 @@ describe("CreateGameController", () => {
     createGameController = new CreateGameController(createGameUseCase);
   });
 
-  beforeAll(async () => {
+  beforeAll(() => {
     res = {
       status,
       json,
