@@ -46,7 +46,7 @@ describe("DeleteGameController", () => {
     gamesRepository.create(mockedGame); // Criando um jogo
     deleteGameController.handle(req, res); //Deletar o jogo
 
-    expect(status).toHaveBeenCalledWith(201);
+    expect(status).toHaveBeenCalledWith(204);
     expect(json).toHaveBeenCalledWith([]);
   });
 

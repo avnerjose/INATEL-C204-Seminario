@@ -1,6 +1,6 @@
 class EditGameController {
   constructor(editGameUseCase) {
-    this.editGameUseCase = this.editGameUseCase;
+    this.editGameUseCase = editGameUseCase;
   }
 
   handle(req, res) {

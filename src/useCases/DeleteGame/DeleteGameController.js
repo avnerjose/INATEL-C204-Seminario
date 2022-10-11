@@ -9,7 +9,7 @@ class DeleteGameController {
     try {
       const games = this.deleteGameUseCase.execute(id);
 
-      return res.status(201).json(games);
+      return res.status(204).json(games);
     } catch (e) {
       return res.status(409).json({
         error: e.message,

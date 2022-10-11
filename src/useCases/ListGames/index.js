@@ -4,6 +4,6 @@ const { ListGamesController } = require("./ListGamesController");
 
 const gamesRepository = GamesRepository.getInstance();
 const listGamesUseCase = new ListGamesUseCase(gamesRepository);
-const listGamesController = new ListGamesController(listGamesUseCases);
+const listGamesController = new ListGamesController(listGamesUseCase);
 
 module.exports = { listGamesController };
