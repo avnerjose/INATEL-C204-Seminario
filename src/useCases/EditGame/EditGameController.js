@@ -6,9 +6,13 @@ class EditGameController {
   handle(req, res) {
     const { id } = req.params;
 
-    const game = this.editGameUseCase.execute(id, req.body);
+    try {
+      const game = this.editGameUseCase.execute(id, req.body);
 
-    return res.json(game);
+      return res.status(204).json(game);
+    } catch (e) {
+      return res.status(404).json({ error: e.message });
+    }
   }
 }
 
